@@ -1,9 +1,9 @@
 class Task < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
   validate :volidate_name_not_including_comma
-  
+
   belongs_to :user
-  
+
   scope :recent, -> { order(created_at: :desc) }
 
   private
